@@ -15,6 +15,10 @@ signal level_done
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var audio = AudioStreamPlayer.new()
+	self.add_child(audio)
+	audio.stream = load("res://Game_Classic/Sound/song.wav")
+	audio.play()
 	rows += difficulty
 	var empty_range = 0.6 - (difficulty/ 10.0) #(0.1 to 0.5)
 	
