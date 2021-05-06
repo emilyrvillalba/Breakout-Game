@@ -1,10 +1,5 @@
 extends StaticBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var points
 
 onready var animated_sprite = get_node("AnimatedSprite")
@@ -12,8 +7,9 @@ onready var animated_sprite = get_node("AnimatedSprite")
 var blue_frames = preload("res://Game_Classic/Bricks/frames/brick1_frame.tres")
 var green_frames = preload("res://Game_Classic/Bricks/frames/brick2_frame.tres")
 var grey_frames = preload("res://Game_Classic/Bricks/frames/brick0_frame.tres")
+var rainbow_frames = preload("res://Game_Classic/Bricks/frames/rainbow.tres")
 
-enum Frames {BLUE = 1, GREEN = 2, GREY = 0}
+enum Frames {BLUE = 1, GREEN = 2, GREY = 0, RAINBOW = 3}
 
 var current_frames = Frames.BLUE
 
@@ -30,7 +26,9 @@ func change_frames():
 			animated_sprite.frames = green_frames
 		Frames.GREY:
 			animated_sprite.frames = grey_frames
-
+		Frames.RAINBOW:
+			animated_sprite.frames = rainbow_frames
+			
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_meta("brick", true)

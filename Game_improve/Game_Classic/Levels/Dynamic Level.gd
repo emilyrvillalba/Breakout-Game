@@ -14,7 +14,7 @@ const cell_height = 32
 func _ready():
 	rows += difficulty
 	var empty_range = 0.6 - (difficulty/ 10.0) #(0.1 to 0.5)
-
+	
 	for column in range(columns):
 		for row in range(rows):
 			var random = rand_range(0,1)
@@ -27,6 +27,9 @@ func _ready():
 			elif random < 0.9:
 				var brick = brick_class.instance()
 				init_brick(brick.Frames.GREEN, brick, row, column, false)
+			elif random < 0.92:
+				var brick = brick_class.instance()
+				init_brick(brick.Frames.RAINBOW, brick, row, column, false)
 			else:
 				var brick = brick_class.instance()
 				init_brick(brick.Frames.GREY, brick, row, column, true)
