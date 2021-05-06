@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game_Classic/Environment/playerParts.tres" type="TileSet" id=1]
+
+[node name="Player" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="player_map" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 275, 270 )
+collision_use_parent = true
+format = 1
