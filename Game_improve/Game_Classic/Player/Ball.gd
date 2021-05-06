@@ -8,6 +8,7 @@ var direction = Vector2(0.5, 1)
 var is_throwing = false
 
 onready var is_visible = get_node("BallVisible")
+signal ball_hit(brick)
 	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("throw"):
@@ -30,8 +31,9 @@ func _physics_process(delta):
 		else:
 			print(collision.collider.get_meta("brick"))
 			if collision.collider.get_meta("brick"):
-				print("hit brick")
-				collision.collider.decrease_points()
+				var brick = collision.collider
+				emit_signal("ball_hit", brick)
+				brick.decrease_points()
 			direction = direction.bounce(collision.normal)
 		
 #func get_bounce_directionx(collision: KinematicCollision2D):

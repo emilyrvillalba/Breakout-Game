@@ -52,3 +52,6 @@ func decrease_points():
 	
 	if points <= 0:
 		queue_free()
+
+func is_alive_after():
+	return points > 1
